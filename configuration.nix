@@ -1,4 +1,4 @@
-{ config, lib, pkgs, ... }:
+{ config, lib, pkgs, inputs, ... }:
 
 {
   imports = [
@@ -17,7 +17,7 @@
       enable = true;
       openFirewall = true; # Automatically opens the port (25565)
       
-			package = pkgs.fabricServers.fabric-1_21_1
+			package = pkgs.fabricServers.fabric-1_21_1;
 
       serverProperties = {
         server-port = 25565;
