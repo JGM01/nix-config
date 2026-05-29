@@ -6,6 +6,7 @@
 		inputs.nix-minecraft.nixosModules.minecraft-servers
   ];
 
+	nixpkgs.config.allowUnfree = true;
 	nixpkgs.overlays = [ inputs.nix-minecraft.overlay ];
 
 	# Modded Minecraft Server Configuration
