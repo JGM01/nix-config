@@ -20,7 +20,7 @@
       
 			# Override the default Java 21 environment with Java 22 for C2ME
       package = pkgs.fabricServers.fabric-1_21_1.override {
-        jre_headless = pkgs.jdk22_headless;
+        jre_headless = pkgs.jdk25_headless;
       };
 
 			# Allocate 6GB of RAM and use optimized Garbage Collection (Aikar's Flags)
