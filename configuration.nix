@@ -18,7 +18,10 @@
       enable = true;
       openFirewall = true; # Automatically opens the port (25565)
       
-			package = pkgs.fabricServers.fabric-1_21_1;
+			# Override the default Java 21 environment with Java 22 for C2ME
+      package = pkgs.fabricServers.fabric-1_21_1.override {
+        jre_headless = pkgs.jdk22_headless;
+      };
 
 			# Allocate 6GB of RAM and use optimized Garbage Collection (Aikar's Flags)
       jvmOpts = (builtins.concatStringsSep " " [
@@ -66,8 +69,8 @@
 						Athena							= pkgs.fetchurl { url = "https://cdn.modrinth.com/data/b1ZV3DIJ/versions/JfyYsWKP/athena-fabric-1.21.1-4.0.6.jar"; sha512 = "6fec9964e4ce654f3b0c7fd849e34ce28aaeed15557dc253bbef59c577add7b96fe2fb454ece6183aec8356bcfd8d9c7327f48ced154f48b75c78043dea7eb10"; };
 						Architectury				= pkgs.fetchurl { url = "https://cdn.modrinth.com/data/lhGA9TYQ/versions/Wto0RchG/architectury-13.0.8-fabric.jar"; sha512 = "7a24a0481732c5504b07347d64a2843c10c29e748018af8e5f5844e5ea2f4517433886231025d823f90eb0b0271d1fa9849c27e7b0c81476c73753f79f19302a"; };
 						GeckoLib						= pkgs.fetchurl { url = "https://cdn.modrinth.com/data/8BmcQJ2H/versions/3GjkJptS/geckolib-fabric-1.21.1-4.8.4.jar"; sha512 = "fe2592bce89898c5dadba718cc3b58f4201c0a19fe3561cdab6a410155f43073ea57b9c1a83229589c8816c8e89a42336c4f0ae09c77640d3dfbadc07afb5f9e"; };
-						ForgeConfigAPIPort	= pkgs.fetchurl { url = "https://cdn.modrinth.com/data/ohNO6lps/versions/mwAOaKnn/ForgeConfigAPIPort-v26.1.4-mc26.1.x-Fabric.jar"; sha512 = "f68ab718347c3d0908dce9bfc3603451fba5d10dcca29f4c8d54c32a7bae2d38131618f4f09b26ee6a55b7b8d87bde3ffc7ac5e97466d7b42650cd6cb437c052"; };
-						Balm								= pkgs.fetchurl { url = "https://cdn.modrinth.com/data/MBAkmtvl/versions/7p4WvO0u/balm-fabric-26.1.1-26.1.1.2.jar"; sha512 = "fb8e1946d58959608f1ef9bd2412c229ad27e64db8d196d2e9674663fde68ac6c2b715d44d2cc134ec77bc3ffc8de7fe407d988d69e0701d567138b899eabe3d"; };
+						ForgeConfigAPIPort	= pkgs.fetchurl { url = "https://cdn.modrinth.com/data/ohNO6lps/versions/N5qzq0XV/ForgeConfigAPIPort-v21.1.6-1.21.1-Fabric.jar"; sha512 = "cd9296e78ba969f7aed6e3692aa25eb61c102c79c55ca5f9592576bacaa26feab5d5d48fa30cf07ca852e0f1d42afc4d4558feff69a67b225183d2bc15898cf9"; };
+						Balm								= pkgs.fetchurl { url = "https://cdn.modrinth.com/data/MBAkmtvl/versions/p7lNrqW8/balm-fabric-1.21.1-21.0.58.jar"; sha512 = "c2cad8ba9eaa9d3f8142f11be1bdb5a3c3fc90c59f417c8be904ee6b32e7c57db299e9db0747ab83d7902372cabce5fd3046194e935a589978ca9aa5bc450218"; };
 						Silk								= pkgs.fetchurl { url = "https://cdn.modrinth.com/data/aTaCgKLW/versions/7WFi2tUG/silk-all-1.11.0.jar"; sha512 = "dd67903f354b0e2925a1eb3da6bd3ff0c839b4c4539dc12bff91de4dd57192f078a5cdc92e162a1a9fc1e441208735cac76356a59354386ecfc43fd367a16002"; };
 						Kotlin							= pkgs.fetchurl { url = "https://cdn.modrinth.com/data/Ha28R6CL/versions/2i87JpYj/fabric-language-kotlin-1.13.11%2Bkotlin.2.3.21.jar"; sha512 = "fa5ed2613f7216999cc0c5ddc71906f082a32b52507d7160acbdcf0eb8de12993ba302e5afde6681d025008ecc66c7533fc0c21deb672ef681b2194fb9be4245"; };
 						Cicada							= pkgs.fetchurl { url = "https://cdn.modrinth.com/data/IwCkru1D/versions/ulZDYpW0/cicada-lib-0.14.3%2B1.21-1.21.1.jar"; sha512 = "283097f736a3e2182b2b40cd585c466c3629d333ed92752c8e341117b67d6a0ee8eb6bd55a447132407fc089970f2d5bd00fd2b7ba7094a1cc16965e1477d4c8"; };
