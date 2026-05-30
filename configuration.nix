@@ -1,4 +1,4 @@
-{ config, lib, pkgs, inputs, ... }:
+{ config, lib, pkgs, inputs, self, ... }:
 
 {
   imports = [
@@ -9,21 +9,21 @@
 	nixpkgs.config.allowUnfree = true;
 	nixpkgs.overlays = [ inputs.nix-minecraft.overlay ];
 
-	# Modded Minecraft Server Configuration
+	# Minecraft Server Config 
   services.minecraft-servers = {
     enable = true;
     eula = true; 
 
     servers.minecrap = {
       enable = true;
-      openFirewall = true; # Automatically opens the port (25565)
+      openFirewall = true; 
       
 			package = pkgs.fabricServers.fabric-1_21_1;
 
-			# Allocate 6GB of RAM and use optimized Garbage Collection (Aikar's Flags)
+			# Aikar's Flags
       jvmOpts = (builtins.concatStringsSep " " [
-				"-Xms2G"
-				"-Xmx8G"
+				"-Xms6G"
+				"-Xmx6G"
         "-XX:+UseG1GC"
         "-XX:+ParallelRefProcEnabled"
         "-XX:MaxGCPauseMillis=200"
@@ -90,7 +90,7 @@
 						VoiceChat				= pkgs.fetchurl { url = "https://cdn.modrinth.com/data/9eGKb6K1/versions/RMvAyxuK/voicechat-fabric-1.21.1-2.6.18.jar"; sha512 = "6f758aa709bd997afbc1e5c511ceb28f562e297151fca11eca0a93b16d84224c555858b395a20310ac0c2772aaf92285797e25a2cca714a3b9033d2e061fff99"; };
 						Lootr						= pkgs.fetchurl { url = "https://cdn.modrinth.com/data/EltpO5cN/versions/SojdASBz/lootr-fabric-1.21.1-1.11.37.120.jar"; sha512 = "4b4e18b69a5d4b023c876b93b88973b07c1de0cee5e474ce049314e50b1eeba36a679ec3d8a5a618ca5a2bdb12cdfca4f6c2144468ace24687484e4883038f58"; };
 						Comforts				= pkgs.fetchurl { url = "https://cdn.modrinth.com/data/SaCpeal4/versions/LUPOTXbk/comforts-fabric-9.0.5%2B1.21.1.jar"; sha512 = "617711d65c0ac1ddb8069ed46051c7da5fd7f4a19adbefc1c6d417621d32a4a4929dd60bd76f204045537a151d29f5e518aa7d18d604012ef1f9b62de707530d"; };
-
+						TreeHarvester		= pkgs.fetchurl { url = "https://cdn.modrinth.com/data/abooMhox/versions/OtzwmSlR/treeharvester-1.21.1-9.1.jar"; sha512 = "ef05666db209bcc339a89c83106c329a51d32310188f913375d8ebb3ff98251f99ae21baa6def18e1125d64e5d454f6cd5c5dbe7f8ddc00312dfa1b89a866c4d"; };
           }
         );
       };
@@ -123,12 +123,11 @@
   # Networking
   networking.networkmanager.enable = true;
 
-  # Optional Wake-on-LAN
+  # Wake-on-LAN
   networking.interfaces."enp3s0".wakeOnLan.enable = true;
 
   # Timezone
   time.timeZone = "America/New_York";
-
 
   # User account
 	age.secrets.trolluser-password.file = ./secrets/trolluser-password.age;
@@ -160,8 +159,12 @@
     curl
 		tmux
     tree
-		killall
   ];
+
+	programs.nh = {
+  	enable = true;
+  	flake = self;  # wherever you keep the repo
+	};
 
   # OpenSSH
   services.openssh = {
