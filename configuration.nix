@@ -41,6 +41,7 @@
         "-XX:SurvivorRatio=32"
         "-XX:+PerfDisableSharedMem"
         "-XX:MaxTenuringThreshold=1"
+        "-XX:+AlwaysPreTouch"
       ]);
 
       serverProperties = {
@@ -82,12 +83,20 @@
   boot.loader.efi.canTouchEfiVariables = true;
 
   # Kernel
-  # + fix Nix build sandbox on hardened kernel
-  boot.kernelPackages = pkgs.linuxPackages_hardened;
-  security.unprivilegedUsernsClone = true;
+  boot.kernelPackages = pkgs.linuxPackages_xanmod;
+  boot.kernel.sysctl = {
+    "net.core.default_qdisc"          = "fq";
+    "net.ipv4.tcp_congestion_control" = "bbr";
+    "vm.swappiness" = 10;
+  };
 
+  zramSwap = {
+    enable = true;
+    memoryPercent = 15;
+  };
+	
 	powerManagement.cpuFreqGovernor = "performance";
-  
+
   # Hostname
   networking.hostName = "trollserver";
 
@@ -100,8 +109,9 @@
   # Timezone
   time.timeZone = "America/New_York";
 
-  age.secrets.trolluser-password.file = ./secrets/trolluser-password.age;
+
   # User account
+	age.secrets.trolluser-password.file = ./secrets/trolluser-password.age;
   users.users.trolluser = {
     isNormalUser = true;
 
