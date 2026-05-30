@@ -235,8 +235,10 @@
 
 
   # Firewall
-  networking.firewall.enable = true;
-	networking.firewall.allowedTCPPorts = [ 3000 ];
+	networking.firewall = {
+  	enable = true;
+  	allowedTCPPorts = [ 3000 ];
+	};
 
 
 	system.autoUpgrade = {
