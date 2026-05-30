@@ -80,7 +80,6 @@
 						Chunky			= pkgs.fetchurl { url = "https://cdn.modrinth.com/data/fALzjamp/versions/RVFHfo1D/Chunky-Fabric-1.4.23.jar"; sha512 = "02ca6af1ed31e9ebc51af20948a2afb670fe653c80aaeb990947caf6b655d6ab8eda3f1b64ef478633b67ef5d2fd0d1fe67e2107a4a522ef45fd1f183c9a6c9c"; };
 						
 						# New stuff
-            Backpacks 			= pkgs.fetchurl { url = "https://cdn.modrinth.com/data/MGcd6kTf/versions/Ci0F49X1/1.2.1-backpacks_mod-1.21.2-1.21.3.jar"; sha512 = "6efcff5ded172d469ddf2bb16441b6c8de5337cc623b6cb579e975cf187af0b79291b91a37399a6e67da0758c0e0e2147281e7a19510f8f21fa6a9c14193a88b"; };
 						Aether					= pkgs.fetchurl { url = "https://cdn.modrinth.com/data/YhmgMVyu/versions/NSqdh1i9/aether-1.21.1-1.5.11-fabric.jar"; sha512 = "de78675eb2719965cb1378113cc443c43039ff706ed70824355267f40286ab3abfb3065778ab711a43615c818362dad5e4dca672c3568d90b14b1a86a9037e04"; };
 						Graves					= pkgs.fetchurl { url = "https://cdn.modrinth.com/data/HnD1GX6e/versions/T3grMjgj/youre-in-grave-danger-fabric-2.4.18.jar"; sha512 = "a095eaf4d132e374a9d6eb3e9ed01184f6e6880fd12b9a94000c40f16cd2099c7d1ba6b67c306a93d8f04837c4c76473b189d797545a1f1d5b3d4f9112d9e93d"; };
 						Oritech					= pkgs.fetchurl { url = "https://cdn.modrinth.com/data/4sYI62kA/versions/dEYQ7Q5W/oritech-fabric-1.21.1-1.2.6.jar"; sha512 = "a90a2c722d707f6ff9e2fa711b03f11a0ebaeaf6823282d822b21bb2bd0e1d3b162adbdc624b8c410180bb642403e7149ba797e2c5c4cada75eb099ce657f26b"; };
@@ -160,6 +159,7 @@
     btop
     curl
     tree
+		killall
   ];
 
   # OpenSSH
