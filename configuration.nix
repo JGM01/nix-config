@@ -22,8 +22,8 @@
 
 			# Allocate 6GB of RAM and use optimized Garbage Collection (Aikar's Flags)
       jvmOpts = (builtins.concatStringsSep " " [
-        "-Xms6G"
-        "-Xmx6G"
+				"-Xms4G"
+				"-Xmx4G"
         "-XX:+UseG1GC"
         "-XX:+ParallelRefProcEnabled"
         "-XX:MaxGCPauseMillis=200"
