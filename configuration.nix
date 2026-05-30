@@ -161,10 +161,6 @@
     tree
   ];
 
-	programs.nh = {
-  	enable = true;
-  	flake = "${self}";
-	};
 
   # OpenSSH
   services.openssh = {
@@ -211,6 +207,18 @@
   # Firewall
   networking.firewall.enable = true;
 
+	system.autoUpgrade = {
+		enable = true;
+		flake = "${self}";
+		flags = [
+			"--update-input" "nixpkgs"
+			"--commit-lock-file"   
+		];
+		dates = "Mon 04:00";
+		allowReboot = false;
+	};
+
+	
   # NixOS release compatibility
   system.stateVersion = "25.11";
 }
