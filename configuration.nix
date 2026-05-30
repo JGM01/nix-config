@@ -63,7 +63,7 @@
         mods = pkgs.linkFarmFromDrvs "mods" (
           builtins.attrValues {
 						# Libraries
-            FabricAPI 					= pkgs.fetchurl { url = "https://cdn.modrinth.com/data/P7dR8mSH/versions/9YVrKY0Z/fabric-api-0.115.0%2B1.21.1.jar"; sha512 = "e5f3c3431b96b281300dd118ee523379ff6a774c0e864eab8d159af32e5425c915f8664b1cd576f20275e8baf995e016c5971fea7478c8cb0433a83663f2aea8"; };
+            FabricAPI 					= pkgs.fetchurl { url = "https://cdn.modrinth.com/data/P7dR8mSH/versions/Lwt6YYHL/fabric-api-0.116.12%2B1.21.1.jar"; sha512 = "e2da98d9885b2d1c2d15b77bfdafa5df6c294cc96844ded739c8fd61a358fc69c4c391e3296534ea67806cb8ec8d250c0343c0b237c567d9740c586e6d67333a"; };
 						ClothAPI 						= pkgs.fetchurl { url = "https://cdn.modrinth.com/data/9s6osm5g/versions/HpMb5wGb/cloth-config-15.0.140-fabric.jar"; sha512 = "1b3f5db4fc1d481704053db9837d530919374bf7518d7cede607360f0348c04fc6347a3a72ccfef355559e1f4aef0b650cd58e5ee79c73b12ff0fc2746797a00"; };
 						OracleIndex					= pkgs.fetchurl { url = "https://cdn.modrinth.com/data/J8MMsNrL/versions/vdjRWePv/oracle_index-fabric-1.2.0.jar"; sha512 = "2c1284e6524e5ae090524989e1e4e899598212edc9c4a1fa97e1758cbff1d7e7c67d55eb3e7ce6b6b8f3ff66436c28db7e55587e61f43f3eab63af6af53b965c"; };
 						Athena							= pkgs.fetchurl { url = "https://cdn.modrinth.com/data/b1ZV3DIJ/versions/JfyYsWKP/athena-fabric-1.21.1-4.0.6.jar"; sha512 = "6fec9964e4ce654f3b0c7fd849e34ce28aaeed15557dc253bbef59c577add7b96fe2fb454ece6183aec8356bcfd8d9c7327f48ced154f48b75c78043dea7eb10"; };
