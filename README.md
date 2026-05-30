@@ -2,17 +2,11 @@
 
 This repository contains the declarative NixOS configuration for `trollserver`, the computer that sits beneath my router. 
 
-## Standard Deployment Flow
-
-Every time `configuration.nix` or `flake.nix` is modified, the changes have to be committed before Nix can build them.
-
-1. **Stage changes:** `git add .`
-2. **Commit changes:** `git commit -m "brief description of changes"`
-3. **Apply & Restart:** `sudo nixos-rebuild switch --flake .#trollserver`
+**Rebuilding Configuration:** `sudo nixos-rebuild switch --flake .#trollserver`
 
 *Note: The rebuild command will automatically restart the systemd services if any related configurations or mods were changed.*
 
-## Minecraft Console & Logs
+## Minecraft Server
 
 The Minecraft server runs headlessly in the background via systemd and is wrapped in a tmux session.
 
@@ -35,14 +29,16 @@ sudo journalctl -fu minecraft-server-minecrap
 
 ```
 
-## Manual Actions
+### Manual Actions
+
 Not necessary for standard updates (the rebuild command handles it), but to manually kill or start the server:
 
 * **Stop:** `sudo systemctl stop minecraft-server-minecrap`
 * **Start:** `sudo systemctl start minecraft-server-minecrap`
 * **Restart:** `sudo systemctl restart minecraft-server-minecrap`
 
-## Adding & Updating Mods
+
+### Adding & Updating Mods
 
 First get the mod's `sha512` hash and add it to the `symlinks` section in `configuration.nix`:
 
@@ -56,7 +52,7 @@ nix run github:Infinidoge/nix-minecraft#nix-modrinth-prefetch -- <VERSION_ID>
 
 *Copy and paste the output directly into `configuration.nix`.*
 
-## World Management
+### World Management
 
 World info is completely separate from the Nix store.
 
