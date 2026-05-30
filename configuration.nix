@@ -97,6 +97,35 @@
     };
   };
 
+	services.prometheus = {
+		enable = true;
+
+		exporters.node = {
+			enable = true;
+			enabledCollectors = [ "systemd" "processes" ];
+			port = 9100;
+		};
+
+		scrapeConfigs = [
+			{
+				job_name = "node";
+				static_configs = [{
+					targets = [ "localhost:9100" ];
+				}];
+			}
+		];
+	};
+
+	services.grafana = {
+		enable = true;
+
+		settings.server = {
+			http_addr = "127.0.0.1";
+			http_port = 3000;
+		};
+	};
+
+
 
   # Bootloader
   boot.loader.systemd-boot.enable = true;
@@ -206,6 +235,8 @@
 
   # Firewall
   networking.firewall.enable = true;
+	networking.firewall.allowedTCPPorts = [ 3000 ];
+
 
 	system.autoUpgrade = {
 		enable = true;
