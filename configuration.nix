@@ -163,7 +163,7 @@
 
 	programs.nh = {
   	enable = true;
-  	flake = self;  # wherever you keep the repo
+  	flake = "${self}";
 	};
 
   # OpenSSH
