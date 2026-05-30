@@ -157,6 +157,7 @@
     wget
     btop
     curl
+		tmux
     tree
 		killall
   ];
