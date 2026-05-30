@@ -8,7 +8,7 @@ Every time `configuration.nix` or `flake.nix` is modified, the changes have to b
 
 1. **Stage changes:** `git add .`
 2. **Commit changes:** `git commit -m "brief description of changes"`
-3. **Apply & Restart:** `nh os switch`
+3. **Apply & Restart:** `sudo nixos-rebuild switch --flake .#trollserver`
 
 *Note: The rebuild command will automatically restart the systemd services if any related configurations or mods were changed.*
 
