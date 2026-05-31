@@ -9,15 +9,15 @@
 	nixpkgs.config.allowUnfree = true;
 	nixpkgs.overlays = [ inputs.nix-minecraft.overlay ];
 
-	# Minecraft Server Config 
+	# Minecraft Server Config
   services.minecraft-servers = {
     enable = true;
-    eula = true; 
+    eula = true;
 
     servers.minecrap = {
       enable = true;
-      openFirewall = true; 
-      
+      openFirewall = true;
+
 			package = pkgs.fabricServers.fabric-1_21_1;
 
 			# Aikar's Flags
@@ -51,9 +51,9 @@
         difficulty = "normal";
 
 				# perf to save the CPU
-				view-distance = 8;        
-        simulation-distance = 4;  
-        network-compression-threshold = 256; 
+				view-distance = 8;
+        simulation-distance = 4;
+        network-compression-threshold = 256;
       };
 
 			symlinks = {
@@ -79,7 +79,7 @@
 						Krypton 		= pkgs.fetchurl { url = "https://cdn.modrinth.com/data/fQEb0iXm/versions/Acz3ttTp/krypton-0.2.8.jar"; sha512 = "5f8cf96c79bfd4d893f1d70da582e62026bed36af49a7fa7b1e00fb6efb28d9ad6a1eec147020496b4fe38693d33fe6bfcd1eebbd93475612ee44290c2483784"; };
 						Spark 			= pkgs.fetchurl { url = "https://cdn.modrinth.com/data/l6YH9Als/versions/cALUj9l1/spark-1.10.109-fabric.jar"; sha512 = "367f574f6d28432067f09737577d799ced9c309c1725da1d09ffdfe10eacf461a66967205cc938131afbcc8b8255c8c25f8aa516e15f061c6481b6e7b8c94250"; };
 						Chunky			= pkgs.fetchurl { url = "https://cdn.modrinth.com/data/fALzjamp/versions/RVFHfo1D/Chunky-Fabric-1.4.23.jar"; sha512 = "02ca6af1ed31e9ebc51af20948a2afb670fe653c80aaeb990947caf6b655d6ab8eda3f1b64ef478633b67ef5d2fd0d1fe67e2107a4a522ef45fd1f183c9a6c9c"; };
-						
+
 						# New stuff
 						Aether					= pkgs.fetchurl { url = "https://cdn.modrinth.com/data/YhmgMVyu/versions/NSqdh1i9/aether-1.21.1-1.5.11-fabric.jar"; sha512 = "de78675eb2719965cb1378113cc443c43039ff706ed70824355267f40286ab3abfb3065778ab711a43615c818362dad5e4dca672c3568d90b14b1a86a9037e04"; };
 						Graves					= pkgs.fetchurl { url = "https://cdn.modrinth.com/data/HnD1GX6e/versions/T3grMjgj/youre-in-grave-danger-fabric-2.4.18.jar"; sha512 = "a095eaf4d132e374a9d6eb3e9ed01184f6e6880fd12b9a94000c40f16cd2099c7d1ba6b67c306a93d8f04837c4c76473b189d797545a1f1d5b3d4f9112d9e93d"; };
@@ -144,7 +144,7 @@
     enable = true;
     memoryPercent = 15;
   };
-	
+
 	powerManagement.cpuFreqGovernor = "performance";
 
   # Hostname
@@ -246,14 +246,13 @@
 		flake = "${self}";
 		flags = [
 			"--update-input" "nixpkgs"
-			"--commit-lock-file"   
+			"--commit-lock-file"
 		];
 		dates = "Mon 04:00";
 		allowReboot = false;
 	};
 
-	
+
   # NixOS release compatibility
   system.stateVersion = "25.11";
 }
-
