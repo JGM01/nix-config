@@ -75,6 +75,8 @@
 						ModMenu							= pkgs.fetchurl { url = "https://cdn.modrinth.com/data/mOgUt4GM/versions/v6Xx3fbU/modmenu-11.0.4.jar"; sha512 = "45ea8f7e0749bc0eb98900f94486e323f153b199617fa43977b46472e4196ee5a6739f41a1e7f68e270f84a367df5f7f53c2a1f46145ad7d349ede4297895396"; };
 						OwoLib							= pkgs.fetchurl { url = "https://cdn.modrinth.com/data/ccKDOlHs/versions/JB1fLQnc/owo-lib-0.12.15.4%2B1.21.jar"; sha512 = "b9c79035c912ef043722f2a1f0bc0166e0ca047ea5237a86f23198dea487289e0a0f92a96e46bd683ffc39e4190b95450d13456b14f6280587635b51c9393a1b"; };
 						Collective 					= pkgs.fetchurl { url = "https://cdn.modrinth.com/data/e0M1UDsY/versions/6xEh8Qbr/collective-1.21.1-8.22.jar"; sha512 = "e598ce7f8bd822fa8a5ffa21c45fa1a14716191b6791ab8cdb96a66b4647483c1b6e2c4e38ba13a2ff5e97a93d851cb9000985a0f2dc7034391811fbbdcfe9a9"; };
+						BackpackLib					= pkgs.fetchurl { url = "https://cdn.modrinth.com/data/9jxwkYQL/versions/ZLVrtF0Q/sophisticatedcore-1.21.1-1.2.9.21.168.jar"; sha512 = "330489fa3434702a01aa1a98d46eca5d155cb4c2dd25b30c70f6afb29a8d027381cf395d5965b3c46df899bb96675536604302d9db6273f624ba959f4009ce25"; };
+						FzzyConfig					= pkgs.fetchurl { url = "https://cdn.modrinth.com/data/hYykXjDp/versions/kOmySYD4/fzzy_config-0.7.6%2B1.21.jar"; sha512 = "84f4176e371e65c838e7b78a7defdf18cad1fe5ad47dabe2a3fc5a940d900296d8af7a0320fb0c15040e38bf9be98d046f38a93d392a6ecaed71926de5158ddf"; };
 
 						# Performance
 						Lithium 		= pkgs.fetchurl { url = "https://cdn.modrinth.com/data/gvQqBUqZ/versions/XQJtuOTA/lithium-fabric-0.15.3%2Bmc1.21.1.jar"; sha512 = "8c576d519121b0c2521101d2209eccd85d560b097fcb847aa54c51cd0d3f3947676f01c8d99913f514487c8e0972a1cf5f3da0c9ef0ec9bacdf2baeb4eb7d1a7"; };
@@ -95,7 +97,9 @@
 						Lootr						= pkgs.fetchurl { url = "https://cdn.modrinth.com/data/EltpO5cN/versions/SojdASBz/lootr-fabric-1.21.1-1.11.37.120.jar"; sha512 = "4b4e18b69a5d4b023c876b93b88973b07c1de0cee5e474ce049314e50b1eeba36a679ec3d8a5a618ca5a2bdb12cdfca4f6c2144468ace24687484e4883038f58"; };
 						Comforts				= pkgs.fetchurl { url = "https://cdn.modrinth.com/data/SaCpeal4/versions/LUPOTXbk/comforts-fabric-9.0.5%2B1.21.1.jar"; sha512 = "617711d65c0ac1ddb8069ed46051c7da5fd7f4a19adbefc1c6d417621d32a4a4929dd60bd76f204045537a151d29f5e518aa7d18d604012ef1f9b62de707530d"; };
 						TreeHarvester		= pkgs.fetchurl { url = "https://cdn.modrinth.com/data/abooMhox/versions/OtzwmSlR/treeharvester-1.21.1-9.1.jar"; sha512 = "ef05666db209bcc339a89c83106c329a51d32310188f913375d8ebb3ff98251f99ae21baa6def18e1125d64e5d454f6cd5c5dbe7f8ddc00312dfa1b89a866c4d"; };
-						Backpacks 			= pkgs.fetchurl { url = "https://cdn.modrinth.com/data/MGcd6kTf/versions/uJz7ESID/1.3.5-backpacks_mod-1.21-1.21.1.jar"; sha512 = "62bcf7ac7ddcda27c2dc581593cf9887c567027e061aad724a684f81a523f04e6f6dadfcbcbcfef81d63dfc1267dbea7d4fef6e93d8f5c97049954b2f4382782"; };
+						Backpacks 			= pkgs.fetchurl { url = "https://cdn.modrinth.com/data/ouNrBQtq/versions/nHhuPdda/sophisticatedbackpacks-1.21.1-3.23.4.3.106.jar"; sha512 = "04c0c22489a16d782b644ec7ad6aa5bf4353614148a9fb1e152e9ec6c72be14d36b1c0793c25b720f2baf85aa299fc6585b4ee1991de25ac426166dc72fb0def"; };
+						BetterClimbing	= pkgs.fetchurl { url = "https://cdn.modrinth.com/data/ZucWZEBV/versions/6nQWk1fq/better_climbing-fabric-3.jar"; sha512 = "c6bec1500149bb59dd1a5eefda549323313747d9388da38e5347c63d4320f30aff239969a19ea2d437489ebeb1cc4ae293b55261132ac90ec57ee6c123603fb7"; };
+						ImmersivePaint	= pkgs.fetchurl { url = "https://cdn.modrinth.com/data/6txNkua3/versions/sScHMgAp/immersive_paintings-fabric-1.21.1-0.7.7.jar"; sha512 = "99ee65b34b4e7a6e78fe7dc2cb3cf2f3ec3128b82f8e36644a4afe0edfbda6374b62686abc5ccfc95d040483021bbe221edc467fbcbd4bddb6075b97a68910ef"; };
           }
         );
       };
