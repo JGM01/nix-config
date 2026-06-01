@@ -22,6 +22,34 @@ sudo journalctl -fu minecraft-server-minecrap
 
 ```
 
+## Incident RCA
+
+Crash evidence is collected locally. To create a focused bundle manually:
+
+```bash
+sudo trollserver-incident-bundle
+```
+
+Bundles are written to `/var/lib/trollserver-incidents/` as compressed `.tar.zst` files. The system keeps the latest 5 bundles.
+
+Minecraft JVM crash logs and rotating GC logs are written to:
+
+```bash
+/var/log/minecraft/minecrap/
+```
+
+When `minecraft-server-minecrap` fails, systemd automatically runs the same bundle collector through the `trollserver-incident-bundle@...` failure hook.
+
+Useful first checks after a crash:
+
+```bash
+sudo ls -lh /var/lib/trollserver-incidents/
+sudo journalctl -b -u minecraft-server-minecrap --no-pager
+sudo journalctl -b -p warning..alert --no-pager
+sudo smartctl --scan-open
+sudo smartctl -a /dev/sda
+```
+
 ## Manual Actions
 Not necessary for standard updates (the rebuild command handles it), but to manually kill or start the server:
 

@@ -3,6 +3,7 @@
 {
   imports = [
   	./hardware-configuration.nix
+		./modules/diagnostics
 		inputs.nix-minecraft.nixosModules.minecraft-servers
   ];
 
@@ -42,6 +43,8 @@
         "-XX:+PerfDisableSharedMem"
         "-XX:MaxTenuringThreshold=1"
         "-XX:+AlwaysPreTouch"
+        "-XX:ErrorFile=/var/log/minecraft/minecrap/hs_err_pid%p.log"
+        "-Xlog:gc*,safepoint:file=/var/log/minecraft/minecrap/gc.log:time,uptime,level,tags:filecount=10,filesize=25M"
       ]);
 
       serverProperties = {
