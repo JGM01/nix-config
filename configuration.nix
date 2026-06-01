@@ -58,7 +58,7 @@
         simulation-distance = 4;
         network-compression-threshold = 256;
 
-				white-list = true; 
+				white-list = true;
   			enforce-whitelist = true;
       };
 
@@ -201,14 +201,27 @@
     tree
   ];
 
-
   # OpenSSH
   services.openssh = {
     enable = true;
-
+    ports = [ 2222 ]; # Real SSH is off of 22
     settings = {
       PasswordAuthentication = false;
+      KbdInteractiveAuthentication = false;
       PermitRootLogin = "no";
+    };
+  };
+
+  # Tar pit bots >:)
+  services.endlessh-go = {
+    enable = true;
+    port = 22; # Tar pit is now on 22
+
+    # Metrics
+    prometheus = {
+      enable = true;
+      port = 2112;
+      listenAddress = "0.0.0.0";
     };
   };
 
@@ -245,11 +258,16 @@
 
 
   # Firewall
-	networking.firewall = {
-  	enable = true;
-  	allowedTCPPorts = [ 3000 ];
-	};
-
+  networking.firewall = {
+    enable = true;
+    allowedTCPPorts = [
+      3000   # Grafana
+      25565  # Minecraft
+      22     # Endlessh Tarpit
+      2222   # Real SSH
+      2112   # Endlessh Prometheus Exporter
+    ];
+  };
 
 	system.autoUpgrade = {
 		enable = true;
