@@ -78,7 +78,7 @@ Copy and paste the output directly into `configuration.nix`.
 
 World data is in `/srv/minecraft/minecrap/world`.
 
-Create a one-off local archive for copying to a Mac:
+Create a one-off local archive for copying:
 
 ```bash
 sudo systemctl stop minecraft-server-minecrap
@@ -87,13 +87,13 @@ sudo chown trolluser:users /tmp/minecrap-world-*.tar.gz
 sudo systemctl start minecraft-server-minecrap
 ```
 
-Then pull it from the Mac:
+Then pull it:
 
 ```bash
 scp trolluser@trollserver.local:/tmp/minecrap-world-*.tar.gz ~/Downloads/
 ```
 
-After confirming the file is on the Mac, remove the temporary server copy:
+After confirming the file, remove the temporary server copy:
 
 ```bash
 rm /tmp/minecrap-world-*.tar.gz
