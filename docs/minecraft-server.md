@@ -32,6 +32,12 @@ sudo trollserver-incident-bundle
 
 Bundles are written to `/var/lib/trollserver-incidents/` as compressed `.tar.zst` files. The system keeps the latest 5 bundles.
 
+List bundle contents:
+
+```bash
+sudo sh -c 'tar --zstd -tf /var/lib/trollserver-incidents/*.tar.zst | head -80'
+```
+
 Minecraft JVM crash logs and rotating GC logs are written to:
 
 ```bash
@@ -71,6 +77,27 @@ Copy and paste the output directly into `configuration.nix`.
 ## World Management
 
 World data is in `/srv/minecraft/minecrap/world`.
+
+Create a one-off local archive for copying to a Mac:
+
+```bash
+sudo systemctl stop minecraft-server-minecrap
+sudo tar -C /srv/minecraft/minecrap -czf /tmp/minecrap-world-$(date +%Y%m%d-%H%M%S).tar.gz world
+sudo chown trolluser:users /tmp/minecrap-world-*.tar.gz
+sudo systemctl start minecraft-server-minecrap
+```
+
+Then pull it from the Mac:
+
+```bash
+scp trolluser@trollserver.local:/tmp/minecrap-world-*.tar.gz ~/Downloads/
+```
+
+After confirming the file is on the Mac, remove the temporary server copy:
+
+```bash
+rm /tmp/minecrap-world-*.tar.gz
+```
 
 To wipe the world (e.g., for new terrain generation):
 
