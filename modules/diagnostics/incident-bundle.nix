@@ -12,7 +12,7 @@ let
       procps
       smartmontools
       systemd
-      tar
+      gnutar
       util-linux
       zstd
     ];
