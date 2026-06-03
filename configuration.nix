@@ -128,6 +128,9 @@
 		];
 	};
 
+	# Tailscale
+  services.tailscale.enable = true;
+
 	services.grafana = {
 		enable = true;
 
@@ -136,8 +139,6 @@
 			http_port = 3000;
 		};
 	};
-
-
 
   # Bootloader
   boot.loader.systemd-boot.enable = true;
@@ -262,12 +263,17 @@
   networking.firewall = {
     enable = true;
     allowedTCPPorts = [
-      3000   # Grafana
       25565  # Minecraft
       22     # Endlessh Tarpit
       2222   # Real SSH
       2112   # Endlessh Prometheus Exporter
     ];
+
+    # Allow Tailscale's UDP port for peer-to-peer connections
+    allowedUDPPorts = [ config.services.tailscale.port ];
+
+    # Trust the Tailscale interface to allow all traffic over the VPN
+    trustedInterfaces = [ "tailscale0" ];
   };
 
 	system.autoUpgrade = {
