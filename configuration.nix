@@ -298,21 +298,23 @@
 
 
   # Firewall
-  networking.firewall = {
-    enable = true;
-    allowedTCPPorts = [
-      25565  # Minecraft
-      22     # Endlessh Tarpit
-      2222   # Real SSH
-      2112   # Endlessh Prometheus Exporter
-    ];
+    networking.firewall = {
+      enable = true;
+      allowedTCPPorts = [
+        53     # AdGuard Home DNS (TCP)
+        25565  # Minecraft
+        22     # Endlessh Tarpit
+        2222   # Real SSH
+        2112   # Endlessh Prometheus Exporter
+      ];
 
-    # Allow Tailscale's UDP port for peer-to-peer connections
-    allowedUDPPorts = [ config.services.tailscale.port ];
+      allowedUDPPorts = [
+        53     # AdGuard Home DNS (UDP)
+        config.services.tailscale.port
+      ];
 
-    # Trust the Tailscale interface to allow all traffic over the VPN
-    trustedInterfaces = [ "tailscale0" ];
-  };
+      trustedInterfaces = [ "tailscale0" ];
+    };
 
 	system.autoUpgrade = {
 		enable = true;
