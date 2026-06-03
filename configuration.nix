@@ -131,6 +131,20 @@
 	# Tailscale
   services.tailscale.enable = true;
 
+  # Give Caddy permission to fetch certificates from the Tailscale daemon
+  services.tailscale.permitCertUid = config.services.caddy.user;
+
+  # Caddy Reverse Proxy Config
+  services.caddy = {
+    enable = true;
+
+    virtualHosts."trollserver.tail175eb6.ts.net" = {
+      extraConfig = ''
+        reverse_proxy localhost:3000
+      '';
+    };
+  };
+
 	services.grafana = {
 		enable = true;
 
