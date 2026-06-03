@@ -158,11 +158,10 @@
   services.adguardhome = {
     enable = true;
 
+    # Grafana is 3000
+    port = 3001;
+
     settings = {
-      http = {
-        # Grafana is :3000
-        address = "0.0.0.0:3001";
-      };
       dns = {
         bind_hosts = [ "0.0.0.0" ];
         port = 53;
