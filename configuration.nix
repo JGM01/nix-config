@@ -154,6 +154,31 @@
 		};
 	};
 
+	# AdGuard
+  services.adguardhome = {
+    enable = true;
+
+    settings = {
+      http = {
+        # Grafana is :3000
+        address = "0.0.0.0:3001";
+      };
+      dns = {
+        bind_hosts = [ "0.0.0.0" ];
+        port = 53;
+        # Where AdGuard sends non-ad requests (Quad9 and Cloudflare)
+        upstream_dns = [
+          "9.9.9.9"
+          "1.1.1.1"
+        ];
+      };
+      filtering = {
+        protection_enabled = true;
+        filtering_enabled = true;
+      };
+    };
+  };
+
   # Bootloader
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
