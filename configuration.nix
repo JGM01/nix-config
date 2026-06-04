@@ -105,6 +105,8 @@
 						BetterClimbing	= pkgs.fetchurl { url = "https://cdn.modrinth.com/data/ZucWZEBV/versions/6nQWk1fq/better_climbing-fabric-3.jar"; sha512 = "c6bec1500149bb59dd1a5eefda549323313747d9388da38e5347c63d4320f30aff239969a19ea2d437489ebeb1cc4ae293b55261132ac90ec57ee6c123603fb7"; };
 						ImmersivePaint	= pkgs.fetchurl { url = "https://cdn.modrinth.com/data/6txNkua3/versions/sScHMgAp/immersive_paintings-fabric-1.21.1-0.7.7.jar"; sha512 = "99ee65b34b4e7a6e78fe7dc2cb3cf2f3ec3128b82f8e36644a4afe0edfbda6374b62686abc5ccfc95d040483021bbe221edc467fbcbd4bddb6075b97a68910ef"; };
 						Trinkets        = pkgs.fetchurl { url = "https://cdn.modrinth.com/data/5aaWibi9/versions/JagCscwi/trinkets-3.10.0.jar"; sha512 = "3ea846c945a0559696501ff65b373c8ee8fd9b394604e9910b4ed710c3e07cadc674a615a2c3b385951a42253a418201975df951b3100053ed39afadc70221c9"; };
+						TomStorage      = pkgs.fetchurl { url = "https://cdn.modrinth.com/data/XZNI4Cpy/versions/GwLz79tK/toms_storage_fabric-1.21-2.3.0.jar"; sha512 = "e7bc2828cbf7cda7fa178c81d9f6935985c72fe44b3ccc33e383101c53f4964eb54c0a6e1b3a6a0e13466a30eb043bccd3021ede141b962ed211ddd2948daa2f"; };
+						JEI             = pkgs.fetchurl { url = "https://cdn.modrinth.com/data/u6dRKJwZ/versions/TvqzuFwN/jei-1.21.1-fabric-19.27.0.340.jar"; sha512 = "04d4067931010578b55aee55b1e38f7ea2ea3ce8d258ae5d9ece7facfcfcb41349a457ca8bd2ca502577616b84b1c14dbd00b2985ffc6cde5c3d1ec2dd214a04"; };
 						}
         );
       };
