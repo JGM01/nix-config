@@ -50,7 +50,7 @@
       serverProperties = {
         server-port = 25565;
         motd = "minecrap (hosted on NixOS!)";
-        max-players = 10;
+        max-players = 11;
         difficulty = "normal";
 
 				# perf to save the CPU
