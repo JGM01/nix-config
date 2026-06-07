@@ -81,6 +81,8 @@
 						BackpackLib					= pkgs.fetchurl { url = "https://cdn.modrinth.com/data/9jxwkYQL/versions/ZLVrtF0Q/sophisticatedcore-1.21.1-1.2.9.21.168.jar"; sha512 = "330489fa3434702a01aa1a98d46eca5d155cb4c2dd25b30c70f6afb29a8d027381cf395d5965b3c46df899bb96675536604302d9db6273f624ba959f4009ce25"; };
 						FzzyConfig					= pkgs.fetchurl { url = "https://cdn.modrinth.com/data/hYykXjDp/versions/kOmySYD4/fzzy_config-0.7.6%2B1.21.jar"; sha512 = "84f4176e371e65c838e7b78a7defdf18cad1fe5ad47dabe2a3fc5a940d900296d8af7a0320fb0c15040e38bf9be98d046f38a93d392a6ecaed71926de5158ddf"; };
 						MultiMod            = pkgs.fetchurl { url = "https://cdn.modrinth.com/data/k68glP2e/versions/taR5fMv3/automodpack-mc1.21.1-fabric-4.0.5.jar"; sha512 = "6bc599601975083b1287894b5c783466b05acd15a2c6276b7258749e1db6e07fe95f40653fc88366e9354faed0552ad89923df270d6f61643c5a239805acc77c"; };
+						SuperMartijnLib     = pkgs.fetchurl { url = "https://cdn.modrinth.com/data/rOUBggPv/versions/blDCgrqh/supermartijn642corelib-1.1.21-fabric-mc1.21.jar"; sha512 = "845981e2819e80b94492a3606ee75400205026771309afca26186a43e64e170fd8ffc4526bb3dea5d31e1aff0e8fea017eabd1a94cd3b5faa0b668f05a754775"; };
+						SuperMartijnConfig  = pkgs.fetchurl { url = "https://cdn.modrinth.com/data/LN9BxssP/versions/euSlaAtA/supermartijn642configlib-1.1.8-fabric-mc1.21.jar"; sha512 = "479838148fc1979409474b460de73162b7730c36b201eb903e299c144a056fed4f6dfb4498e0ded1e93a168379ff7efe0623279aa33a82b1b222c68468c477d6"; };
 
 						# Performance
 						Lithium 		= pkgs.fetchurl { url = "https://cdn.modrinth.com/data/gvQqBUqZ/versions/XQJtuOTA/lithium-fabric-0.15.3%2Bmc1.21.1.jar"; sha512 = "8c576d519121b0c2521101d2209eccd85d560b097fcb847aa54c51cd0d3f3947676f01c8d99913f514487c8e0972a1cf5f3da0c9ef0ec9bacdf2baeb4eb7d1a7"; };
@@ -108,6 +110,7 @@
 						TomStorage      = pkgs.fetchurl { url = "https://cdn.modrinth.com/data/XZNI4Cpy/versions/GwLz79tK/toms_storage_fabric-1.21-2.3.0.jar"; sha512 = "e7bc2828cbf7cda7fa178c81d9f6935985c72fe44b3ccc33e383101c53f4964eb54c0a6e1b3a6a0e13466a30eb043bccd3021ede141b962ed211ddd2948daa2f"; };
 						JEI             = pkgs.fetchurl { url = "https://cdn.modrinth.com/data/u6dRKJwZ/versions/TvqzuFwN/jei-1.21.1-fabric-19.27.0.340.jar"; sha512 = "04d4067931010578b55aee55b1e38f7ea2ea3ce8d258ae5d9ece7facfcfcb41349a457ca8bd2ca502577616b84b1c14dbd00b2985ffc6cde5c3d1ec2dd214a04"; };
 						IronChest       = pkgs.fetchurl { url = "https://cdn.modrinth.com/data/7mHyGgvW/versions/rHtTi59k/IronChests-2.0.4.jar"; sha512 = "69a92cad45ba947f9f29f79aa3132fc287b86a3d46e501ad4505fe2aeac7e15fc517be32a162169e472345c58d7490a9bfb72fc20fda2ed94ff8c4a8526815da"; };
+						ChunkLoader     = pkgs.fetchurl { url = "https://cdn.modrinth.com/data/t1VgucWo/versions/gC8IvJwh/chunkloaders-1.2.9-fabric-mc1.21.1.jar"; sha512 = "76dd56e5223e2e5072f5fd143bf95feb9e5e5cc73fed5d99c8ad2a9a77e2a12d0b34efdae94bc792209989c07212cc189d8ed905fe985ff4a711813a212e2a9a"; };
 						}
         );
       };
