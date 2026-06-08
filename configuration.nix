@@ -117,13 +117,6 @@
     };
   };
 
-  services.resolved = {
-    enable = true;
-    fallbackDns = [ "9.9.9.9" "1.1.1.1" ];
-    # Don't let DNSSEC enforcement block fallback resolution
-    dnssec = "allow-downgrade";
-  };
-
 	services.prometheus = {
 		enable = true;
 
@@ -169,29 +162,6 @@
 		};
 	};
 
-	# AdGuard
-  services.adguardhome = {
-    enable = true;
-
-    # Grafana is 3000
-    port = 3001;
-
-    settings = {
-      dns = {
-        bind_hosts = [ "0.0.0.0" ];
-        port = 53;
-        # Where AdGuard sends non-ad requests (Quad9 and Cloudflare)
-        upstream_dns = [
-          "9.9.9.9"
-          "1.1.1.1"
-        ];
-      };
-      filtering = {
-        protection_enabled = true;
-        filtering_enabled = true;
-      };
-    };
-  };
 
   # Bootloader
   boot.loader.systemd-boot.enable = true;
@@ -316,7 +286,6 @@
     networking.firewall = {
       enable = true;
       allowedTCPPorts = [
-        53     # AdGuard Home DNS (TCP)
         25565  # Minecraft
         22     # Endlessh Tarpit
         2222   # Real SSH
@@ -324,7 +293,6 @@
       ];
 
       allowedUDPPorts = [
-        53     # AdGuard Home DNS (UDP)
         config.services.tailscale.port
       ];
 
