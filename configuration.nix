@@ -143,6 +143,13 @@
 		];
 	};
 
+	services.grafana = {
+    enable = true;
+    settings.server = {
+      http_addr = "0.0.0.0";
+      http_port = 3000;
+    };
+  };
 
   # Bootloader
   boot.loader.systemd-boot.enable = true;
@@ -275,9 +282,7 @@
         3000   # Grafana
       ];
 
-      allowedUDPPorts = [
-        config.services.tailscale.port
-      ];
+      allowedUDPPorts = [];
     };
 
 	system.autoUpgrade = {
