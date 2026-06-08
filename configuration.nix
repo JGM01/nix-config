@@ -117,6 +117,13 @@
     };
   };
 
+  services.resolved = {
+    enable = true;
+    fallbackDns = [ "9.9.9.9" "1.1.1.1" ];
+    # Don't let DNSSEC enforcement block fallback resolution
+    dnssec = "allow-downgrade";
+  };
+
 	services.prometheus = {
 		enable = true;
 
@@ -134,32 +141,6 @@
 				}];
 			}
 		];
-	};
-
-	# Tailscale
-  services.tailscale.enable = true;
-
-  # Give Caddy permission to fetch certificates from the Tailscale daemon
-  services.tailscale.permitCertUid = config.services.caddy.user;
-
-  # Caddy Reverse Proxy Config
-  services.caddy = {
-    enable = true;
-
-    virtualHosts."trollserver.tail175eb6.ts.net" = {
-      extraConfig = ''
-        reverse_proxy localhost:3000
-      '';
-    };
-  };
-
-	services.grafana = {
-		enable = true;
-
-		settings.server = {
-			http_addr = "0.0.0.0";
-			http_port = 3000;
-		};
 	};
 
 
@@ -290,13 +271,12 @@
         22     # Endlessh Tarpit
         2222   # Real SSH
         2112   # Endlessh Prometheus Exporter
+        3000   # Grafana
       ];
 
       allowedUDPPorts = [
         config.services.tailscale.port
       ];
-
-      trustedInterfaces = [ "tailscale0" ];
     };
 
 	system.autoUpgrade = {
