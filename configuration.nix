@@ -339,7 +339,7 @@
 			"--commit-lock-file"
 		];
 		dates = "Mon 04:00";
-		allowReboot = false;
+		allowReboot = true;
 	};
 
 
