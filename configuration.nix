@@ -165,6 +165,7 @@
 
   # Hostname
   networking.hostName = "trollserver";
+  networking.nameservers = [ "1.1.1.1" "9.9.9.9" ];
 
   # Networking
   networking.networkmanager.enable = true;
