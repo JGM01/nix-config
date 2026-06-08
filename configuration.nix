@@ -117,6 +117,13 @@
     };
   };
 
+  services.resolved = {
+    enable = true;
+    fallbackDns = [ "9.9.9.9" "1.1.1.1" ];
+    # Don't let DNSSEC enforcement block fallback resolution
+    dnssec = "allow-downgrade";
+  };
+
 	services.prometheus = {
 		enable = true;
 
