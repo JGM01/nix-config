@@ -222,6 +222,7 @@
     curl
 		tmux
     tree
+    ghostty.terminfo
   ];
 
   # OpenSSH
