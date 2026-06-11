@@ -225,6 +225,7 @@
     tree
     ghostty.terminfo
     nh
+    nix-output-monitor
   ];
 
   programs.tmux = {
