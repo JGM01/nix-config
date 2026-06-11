@@ -7,6 +7,8 @@
 		inputs.nix-minecraft.nixosModules.minecraft-servers
   ];
 
+  environment.variables.FLAKE = "/home/trolluser/nix-config";
+
 	nixpkgs.config.allowUnfree = true;
 	nixpkgs.overlays = [ inputs.nix-minecraft.overlay ];
 
@@ -220,12 +222,36 @@
     wget
     btop
     curl
-		tmux
     tree
     ghostty.terminfo
+    nh
   ];
 
+  programs.tmux = {
+    enable = true;
+
+    shortcut = "a"; # prefix
+    baseIndex = 1;
+    historyLimit = 50000;
+
+    extraConfig = ''
+      # Enable Mouse Support
+      set -g mouse on
+
+      # | horizontally, - vertically.
+      bind | split-window -h -c "#{pane_current_path}"
+      bind - split-window -v -c "#{pane_current_path}"
+      unbind '"'
+      unbind %
+
+      # Shift-Arrow keys to switch windows without needing the prefix
+      bind -n S-Left  previous-window
+      bind -n S-Right next-window
+    '';
+  };
+
   # OpenSSH
+  programs.mosh.enable = true;
   services.openssh = {
     enable = true;
     settings = {
