@@ -111,17 +111,11 @@
 						JEI             = pkgs.fetchurl { url = "https://cdn.modrinth.com/data/u6dRKJwZ/versions/TvqzuFwN/jei-1.21.1-fabric-19.27.0.340.jar"; sha512 = "04d4067931010578b55aee55b1e38f7ea2ea3ce8d258ae5d9ece7facfcfcb41349a457ca8bd2ca502577616b84b1c14dbd00b2985ffc6cde5c3d1ec2dd214a04"; };
 						IronChest       = pkgs.fetchurl { url = "https://cdn.modrinth.com/data/7mHyGgvW/versions/rHtTi59k/IronChests-2.0.4.jar"; sha512 = "69a92cad45ba947f9f29f79aa3132fc287b86a3d46e501ad4505fe2aeac7e15fc517be32a162169e472345c58d7490a9bfb72fc20fda2ed94ff8c4a8526815da"; };
 						ChunkLoader     = pkgs.fetchurl { url = "https://cdn.modrinth.com/data/t1VgucWo/versions/gC8IvJwh/chunkloaders-1.2.9-fabric-mc1.21.1.jar"; sha512 = "76dd56e5223e2e5072f5fd143bf95feb9e5e5cc73fed5d99c8ad2a9a77e2a12d0b34efdae94bc792209989c07212cc189d8ed905fe985ff4a711813a212e2a9a"; };
+						StorageDrawers  = pkgs.fetchurl { url = "https://cdn.modrinth.com/data/guitPqEi/versions/78LmfH8Z/StorageDrawers-fabric-1.21.1-13.11.4.jar"; sha512 = "1ec2f81b50708b610d0e7024d067ac630c0f9497307e68e1dc22ee41c6d196f2db3249cad6ab243f3192e73b6a569fb2936a96b9bf61a94ea67a643a5f5b6283"; };
 						}
         );
       };
     };
-  };
-
-  services.resolved = {
-    enable = true;
-    fallbackDns = [ "9.9.9.9" "1.1.1.1" ];
-    # Don't let DNSSEC enforcement block fallback resolution
-    dnssec = "allow-downgrade";
   };
 
 	services.prometheus = {

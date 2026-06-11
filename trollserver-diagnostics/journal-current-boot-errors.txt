@@ -1,4 +1,0 @@
-May 31 21:46:54 trollserver kernel: intel_oc_wdt INT3F0D:00: probe with driver intel_oc_wdt failed with error -13
-May 31 21:47:01 trollserver bootctl[722]:  Mount point '/boot' which backs the random seed file is world accessible, which is a security hole! 
-May 31 21:47:01 trollserver bootctl[722]: Random seed file '/boot/loader/random-seed' is world accessible, which is a security hole!
-May 31 22:22:53 trollserver sshd-session[1580]: error: PAM: Authentication failure for trolluser from 192.168.0.15
