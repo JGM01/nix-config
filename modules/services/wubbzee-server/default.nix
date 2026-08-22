@@ -9,6 +9,25 @@ let
     src = inputs.wubbzee-server;
     cargoLock.lockFile = "${inputs.wubbzee-server}/Cargo.lock";
   };
+
+  # GitHub's published SSH host keys (api.github.com/meta). Shipped read-only
+  # so ssh never needs to write a known_hosts file at runtime.
+  githubKnownHosts = pkgs.writeText "github-known-hosts" ''
+    github.com ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIOMqqnkVzrm0SdG6UOoqKLsabgH5C9okWi0dh2l9GKJl
+    github.com ecdsa-sha2-nistp256 AAAAE2VjZHNhLXNoYTItbmlzdHAyNTYAAAAIbmlzdHAyNTYAAABBBEmKSENjQEezOmxkZMy7opKgwFB9nkt5YRrYMjNuG5N87uRgg6CLrbo5wAdT/y6v0mKV0U2w0WZ2YB/++Tpockg=
+    github.com ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQCj7ndNxQowgcQnjshcLrqPEiiphnt+VTTvDP6mHBL9j1aNUkY4Ue1gvwnGLVlOhGeYrnZaMgRK6+PKCUXaDbC7qtbW8gIkhL7aGCsOr/C56SJMy/BCZfxd1nWzAOxSDPgVsmerOBYfNqltV9/hWCqBywINIR+5dIg6JTJ72pcEpEjcYgXkE2YEFXV1JHnsKgbLWNlhScqb2UmyRkQyytRLtL+38TGxkxCflmO+5Z8CSSNY7GidjMIZ7Q4zMjA2n1nGrlTDkzwDCsw+wqFPGQA179cnfGWOWRVruj16z6XyvxvjJwbz0wQZ75XK5tKSb7FNyeIEs4TT4jk+S4dhPeAUC5y+bDYirYgM4GC7uEnztnZyaVWQ7B381AK4Qdrwt51ZqExKbQpTUNn+EjqoTwvqNj4kqx5QUCI0ThS/YkOxJCXmPUWZbhjpCg56i+2aB6CmK2JGhn57K5mj0MNdBXA4/WnwH6XoPWJzK5Nyu2zB3nAZp+S5hpQs+p1vN1/wsjk=
+  '';
+
+  # Wrapper so GIT_SSH_COMMAND is a single token (systemd Environment= splits
+  # on spaces and would otherwise drop the -i/-o flags).
+  gitSsh = pkgs.writeShellScript "wubbzee-git-ssh" ''
+    exec ${pkgs.openssh}/bin/ssh \
+      -i ${config.age.secrets.wubbzee-deploy-key.path} \
+      -o IdentitiesOnly=yes \
+      -o StrictHostKeyChecking=yes \
+      -o UserKnownHostsFile=${githubKnownHosts} \
+      "$@"
+  '';
 in
 {
   options.services.wubbzee-server = {
@@ -100,7 +119,7 @@ in
           "WUBBZEE_REPO=${cfg.repoUrl}"
           "WUBBZEE_BRANCH=${cfg.branch}"
           "WUBBZEE_SECRET_FILE=${config.age.secrets.wubbzee-webhook-secret.path}"
-          "GIT_SSH_COMMAND=${pkgs.openssh}/bin/ssh -i ${config.age.secrets.wubbzee-deploy-key.path} -o IdentitiesOnly=yes -o StrictHostKeyChecking=accept-new -o UserKnownHostsFile=/var/lib/wubbzee/known_hosts"
+          "GIT_SSH_COMMAND=${gitSsh}"
         ];
 
         PrivateTmp = true;
