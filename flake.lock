@@ -89,11 +89,11 @@
         "systems": "systems_2"
       },
       "locked": {
-        "lastModified": 1780028654,
-        "narHash": "sha256-rpHYDTAjj+DFy4sm48ewEsFof73sivpdkobM2Hv26d0=",
+        "lastModified": 1780375694,
+        "narHash": "sha256-TznzgYVONg28KiSFB2rVdf/eLVIMtEQOxKt13Kzyrp8=",
         "owner": "Infinidoge",
         "repo": "nix-minecraft",
-        "rev": "06475c68a76a6120c7ee3d4356b243965f28e323",
+        "rev": "e6f8bec35104ca5955efe73742da58d2823684f7",
         "type": "github"
       },
       "original": {
@@ -120,11 +120,11 @@
     },
     "nixpkgs_2": {
       "locked": {
-        "lastModified": 1779796641,
-        "narHash": "sha256-ZsIrKmhp4vbBXoXXmR/tBXA/UCsAQiJL9vsgZEduhVY=",
+        "lastModified": 1782847189,
+        "narHash": "sha256-twXPFqFsrrY5r28Zh7Homgcp2gUMBgQ6WDS98Q/3xFI=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "25f538306313eae3927264466c70d7001dcea1df",
+        "rev": "b6018f87da91d19d0ab4cf979885689b469cdd41",
         "type": "github"
       },
       "original": {
@@ -138,7 +138,8 @@
       "inputs": {
         "agenix": "agenix",
         "nix-minecraft": "nix-minecraft",
-        "nixpkgs": "nixpkgs_2"
+        "nixpkgs": "nixpkgs_2",
+        "wubbzee-server": "wubbzee-server"
       }
     },
     "systems": {
@@ -168,6 +169,22 @@
       "original": {
         "owner": "nix-systems",
         "repo": "default",
+        "type": "github"
+      }
+    },
+    "wubbzee-server": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1787370943,
+        "narHash": "sha256-beS03AZi6Od6vnDGGjGk38FwV/t9a69ci1EL85Hepcc=",
+        "owner": "JGM01",
+        "repo": "wubbzee-server",
+        "rev": "0e7013b72044a14037fe2d4067f2963f1d648bb5",
+        "type": "github"
+      },
+      "original": {
+        "owner": "JGM01",
+        "repo": "wubbzee-server",
         "type": "github"
       }
     }

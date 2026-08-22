@@ -125,10 +125,7 @@
 	services.wubbzee-server = {
 		enable = true;
 
-		# TODO: replace "wubbzee" with the tunnel UUID printed by
-		# `cloudflared tunnel create wubbzee`, then copy the generated
-		# ~/.cloudflared/<uuid>.json to /etc/cloudflared/<uuid>.json on the box.
-		tunnelId = "wubbzee";
+		tunnelId = "da667e30-3222-47e2-b662-be1ec3706f06";
 	};
 
 	services.tailscale = {
