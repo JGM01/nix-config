@@ -4,4 +4,6 @@ let
 in
 {
   "trolluser-password.age".publicKeys = [ trollserver mac ];
+  "wubbzee-webhook-secret.age".publicKeys = [ trollserver mac ];
+  "wubbzee-deploy-key.age".publicKeys = [ trollserver mac ];
 }

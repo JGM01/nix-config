@@ -4,6 +4,7 @@
   imports = [
   	./hardware-configuration.nix
 		./modules/diagnostics
+		./modules/services/wubbzee-server
 		inputs.nix-minecraft.nixosModules.minecraft-servers
   ];
 
@@ -120,10 +121,20 @@
     };
   };
 
-  services.tailscale = {
-    enable = true;
-    useRoutingFeatures = "server";
-  };
+	# Wubbzee static site server
+	services.wubbzee-server = {
+		enable = true;
+
+		# TODO: replace "wubbzee" with the tunnel UUID printed by
+		# `cloudflared tunnel create wubbzee`, then copy the generated
+		# ~/.cloudflared/<uuid>.json to /etc/cloudflared/<uuid>.json on the box.
+		tunnelId = "wubbzee";
+	};
+
+	services.tailscale = {
+		enable = true;
+		useRoutingFeatures = "server";
+	};
 
   services.caddy = {
     enable = true;
@@ -226,6 +237,7 @@
     ghostty.terminfo
     nh
     nix-output-monitor
+    cloudflared
   ];
 
   programs.tmux = {
