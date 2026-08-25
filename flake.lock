@@ -175,11 +175,11 @@
     "wubbzee-server": {
       "flake": false,
       "locked": {
-        "lastModified": 1787370943,
-        "narHash": "sha256-beS03AZi6Od6vnDGGjGk38FwV/t9a69ci1EL85Hepcc=",
+        "lastModified": 1787622308,
+        "narHash": "sha256-vK2+E51rdEqgsM1jIwHhvWaEr0o2BjDPJ2bhjJeE/io=",
         "owner": "JGM01",
         "repo": "wubbzee-server",
-        "rev": "0e7013b72044a14037fe2d4067f2963f1d648bb5",
+        "rev": "676711c48fb89e84eec7b31cc41b7e55db799684",
         "type": "github"
       },
       "original": {

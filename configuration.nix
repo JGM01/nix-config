@@ -235,6 +235,7 @@
     nh
     nix-output-monitor
     cloudflared
+    pkg-config
   ];
 
   programs.tmux = {
