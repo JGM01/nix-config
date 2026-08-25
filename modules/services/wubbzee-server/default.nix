@@ -8,6 +8,8 @@ let
     version = "0.1.0";
     src = inputs.wubbzee-server;
     cargoLock.lockFile = "${inputs.wubbzee-server}/Cargo.lock";
+    nativeBuildInputs = [ pkgs.pkg-config ];
+    buildInputs = [ pkgs.dav1d ];
   };
 
   # GitHub's published SSH host keys (api.github.com/meta). Shipped read-only
