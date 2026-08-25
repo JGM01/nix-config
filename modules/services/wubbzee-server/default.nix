@@ -102,7 +102,7 @@ in
       after = [ "network-online.target" ];
       wants = [ "network-online.target" ];
       wantedBy = [ "multi-user.target" ];
-      path = [ pkgs.git ];
+      path = [ pkgs.git pkgs.graphviz ];
 
       serviceConfig = {
         Type = "simple";
